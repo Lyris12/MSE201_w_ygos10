@@ -342,7 +342,7 @@ card style:
 		top: { if styling.language=="japanese" then 438 else if styling.language=="OCG style english" then 438 else if styling.language=="chinese simplified" then 438 else if styling.language=="chinese traditional" then 438 else 436 }
 		width: 313
 		height: 30
-		alignment: middle left
+		alignment: middle left shrink-overflow
 		z index: 2
 		font:
 			#name: Yu-Gi-Oh!ITCStoneSerifSmallCaps
