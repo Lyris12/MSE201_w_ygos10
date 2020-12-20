@@ -54,7 +54,7 @@ styling field:
 	type: choice
 	name: template style
 	description: 模板样式 Style of the template, Proxy-Like is the style featured in INFDEV version while Actual Style is closer to real life Series 10 cards.
-	initial: proxy-like
+	initial: actual style
 	choice: proxy-like
 	choice: actual style
 styling field:
