@@ -670,21 +670,21 @@ extra card style:
 						else if card.card_type == "xyz monster" then "levels/rdrank-0.png"
 						else if card.card_type == "origin spatial monster" then "levels/rdorigin-0.png"
 						else if card.card_type == "altered spatial monster" then "levels/rdaltered-0.png"
-						else if card.card_type == "timeleap monster" then "levels/rdfuture-0.png"
+						else if card.card_type == "time leap monster" then "levels/rdfuture-0.png"
 						else "levels/rdlevel-0.png"
 					else if contains(card.level, match: "*") then
 						if card.card_type == "evolute monster" then "levels/rdstage-"+number_of_items(in: replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""))+".png"
 						else if card.card_type == "xyz monster" then "levels/rdrank-"+number_of_items(in: replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""))+".png"
 						else if card.card_type == "origin spatial monster" then "levels/rdorigin-"+number_of_items(in: replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""))+".png"
 						else if card.card_type == "altered spatial monster" then "levels/rdaltered-"+number_of_items(in: replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""))+".png"
-						else if card.card_type == "timeleap monster" then "levels/rdfuture-"+number_of_items(in: replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""))+".png"
+						else if card.card_type == "time leap monster" then "levels/rdfuture-"+number_of_items(in: replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""))+".png"
 						else "levels/rdlevel-"+number_of_items(in: replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""))+".png"
 					else
 						if card.card_type == "evolute monster" then "levels/rdstage-"+replace(replace(replace(replace(replace(card.level, match:"<sym-auto>", replace:""), match:"</sym-auto>", replace:""), match:"<sym>", replace:""), match:"</sym>", replace:""), match:" ", replace:"")+".png"
 						else if card.card_type == "xyz monster" then "levels/rdrank-"+card.level+".png"
 						else if card.card_type == "origin spatial monster" then "levels/rdorigin-"+card.level+".png"
 						else if card.card_type == "altered spatial monster" then "levels/rdaltered-"+card.level+".png"
-						else if card.card_type == "timeleap monster" then "levels/rdfuture-"+card.level+".png"
+						else if card.card_type == "time leap monster" then "levels/rdfuture-"+card.level+".png"
 						else "levels/rdlevel-"+card.level+".png"
 		visible: {not contains(card.card_type, match: "xros monster")}
 	rdlabel:

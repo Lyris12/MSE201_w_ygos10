@@ -797,7 +797,7 @@ card style:
 		top : { if is_pendulum() and ( styling.template_style=="actual style" and styling.pendulum_size=="more" ) then 477 else if is_pendulum() and styling.pendulum_size=="more" or card.card_type == "perdition monster" then 476 else if styling.template_style=="actual style" then 463 else 462 }
 		width: { if styling.large_type then card_style.monster_type.content_width + 8 else card_style.monster_type.content_width + 6 }
 		height: 15
-		alignment: middle left
+		alignment: middle left shrink-overflow
 		z index: 2
 		font:
 			name: 
