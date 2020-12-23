@@ -795,7 +795,7 @@ card style:
 		#left: { if styling.template_style=="actual style" then 38 else 40 }
 		left: { if is_nmonster() then (359 - card_style.level.content_width) else if is_tw() or is_cn() then 28 else if styling.template_style=="actual style" and (is_tw() or is_cn() ) then 25 else if styling.template_style=="actual style" then 30 else 32 }
 		top : { if is_pendulum() and ( styling.template_style=="actual style" and styling.pendulum_size=="more" ) then 477 else if is_pendulum() and styling.pendulum_size=="more" or card.card_type == "perdition monster" then 476 else if styling.template_style=="actual style" then 463 else 462 }
-		width: { if styling.large_type then card_style.monster_type.content_width + 8 else card_style.monster_type.content_width + 6 }
+		width: { if styling.large_type then (if card_style.monster_type.content_width + 8 < 361 then card_style.monster_type.content_width + 8 else 361) else (if card_style.monster_type.content_width + 6 < 361 then card_style.monster_type.content_width + 6 else 361) }
 		height: 15
 		alignment: middle left shrink-overflow
 		z index: 2
