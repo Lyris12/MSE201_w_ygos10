@@ -31,6 +31,7 @@ card dpi: 178.0156
 init script:
 	is_link := {card.card_type == "link monster" or card.card_type == "link conjoint monster" or styling.is_link_card}
 	is_monster := {card.card_type == "normal monster" or card.card_type == "effect monster" or card.card_type == "ritual monster" or card.card_type == "synchro monster" or card.card_type == "dark synchro monster" or card.card_type == "xyz monster" or card.card_type == "link monster" or card.card_type == "dlc monster" or card.card_type == "fusion monster" or card.card_type == "token monster" or card.card_type == "obelisk card" or card.card_type == "slifer card" or card.card_type == "ra card" or is_spatial()}
+	is_nmonster := {card.card_type == "spell card" or card.card_type == "trap card" or card.card_type == "conjoint spell card" or card.card_type == "conjoint trap card" or card.card_type == "trell card" or card.card_type == "skill card"}
 	is_spatial := {card.card_type == "origin spatial monster" or card.card_type == "altered spatial monster"}
 	is_conjoint := {contains(card.pendulum, match: "conjoint") and not contains(card.card_type, match: "conjoint")}
 	is_legacy_pendulum:= {false}
@@ -793,9 +794,9 @@ card style:
 	############################# Card type
 	monster type:
 		#left: { if styling.template_style=="actual style" then 38 else 40 }
-		left: { if is_nmonster() then (359 - card_style.level.content_width) else if is_tw() or is_cn() then 28 else if styling.template_style=="actual style" and (is_tw() or is_cn() ) then 25 else if styling.template_style=="actual style" then 30 else 32 }
+		left: { if card.card_type=="skill card" then (if styling.template_style=="actual style" then 30 else 32) else if is_nmonster() then (359 - card_style.level.content_width) else if is_tw() or is_cn() then 28 else if styling.template_style=="actual style" and (is_tw() or is_cn() ) then 25 else if styling.template_style=="actual style" then 30 else 32 }
 		top : { if is_pendulum() and ( styling.template_style=="actual style" and styling.pendulum_size=="more" ) then 477 else if is_pendulum() and styling.pendulum_size=="more" or card.card_type == "perdition monster" then 476 else if styling.template_style=="actual style" then 463 else 462 }
-		width: { if styling.large_type then (if card_style.monster_type.content_width + 8 < 361 then card_style.monster_type.content_width + 8 else 361) else (if card_style.monster_type.content_width + 6 < 361 then card_style.monster_type.content_width + 6 else 361) }
+		width: { if styling.large_type then 363 else 361 }
 		height: 15
 		alignment: middle left shrink-overflow
 		z index: 2
@@ -815,7 +816,7 @@ card style:
 			name: yugioh-text-replacements
 			alignment: middle center
 			size: 3.5
-		visible: script: if is_nmonster() then false else true
+		visible: script: if is_nmonster() and card.card_type!="skill card" then false else true
 	############################# Edition and Card ID
 	number:
 		left: { if is_pendulum() or card.card_type == "perdition monster" then 34 else if (card.card_type=="spell card" or card.card_type=="trap card") and styling.extended_artwork=="yes" then 165 else if card.card_type=="link monster" and styling.extended_artwork="yes" then 48 else if styling.extended_artwork=="yes" and (card.card_type!="spell card" or card.card_type!="trap card") then 34 else 262 }
@@ -843,7 +844,7 @@ card style:
 	############################# Text box
 	rule text:
 		left: { if styling.template_style=="actual style" then 30 else 32 }
-		top : { if styling.template_style=="actual style" and is_nmonster() then 460 else if is_nmonster() then 458 else if is_pendulum() then ( if styling.pendulum_size=="more" then ( if is_pendulum() and card.card_type=="normal monster" then 492 else 490 ) else ( if is_pendulum() and card.card_type=="normal monster" then 476 else 474 ) ) else if ( card.card_type=="normal monster" and styling.image_frame=="no" ) then 478 else if card.card_type == "perdition monster" then 490 else if styling.template_style=="actual style" then 478 else 474 }
+		top : { if card.card_type=="skill card" then (if styling.template_style=="actual style" then 478 else 474) else if styling.template_style=="actual style" and is_nmonster() then 460 else if is_nmonster() then 458 else if is_pendulum() then ( if styling.pendulum_size=="more" then ( if is_pendulum() and card.card_type=="normal monster" then 492 else 490 ) else ( if is_pendulum() and card.card_type=="normal monster" then 476 else 474 ) ) else if ( card.card_type=="normal monster" and styling.image_frame=="no" ) then 478 else if card.card_type == "perdition monster" then 490 else if styling.template_style=="actual style" then 478 else 474 }
 		width: { if styling.template_style=="actual style" then 358 else 356 }
 		height: { if is_nmonster() then 118 else if is_pendulum() and styling.pendulum_size=="more" or card.card_type == "perdition monster" then 65 else 82 }
 		font:
